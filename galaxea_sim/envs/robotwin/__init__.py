@@ -629,3 +629,23 @@ gym.register(
     ),
     max_episode_steps=400,
 )
+for _prefix, _robot_class, _init_qpos in [
+    ("R1", R1Robot, R1_INIT_QPOS),
+    ("R1Pro", R1ProRobot, R1PRO_INIT_QPOS),
+    ("R1Lite", R1LiteRobot, R1LITE_INIT_QPOS),
+]:
+    gym.register(
+        id=f'{_prefix}CubeBowlPlace-v0',
+        entry_point='galaxea_sim.envs.robotwin.cube_bowl_place:CubeBowlPlaceEnv',
+        disable_env_checker=True,
+        order_enforce=False,
+        kwargs=dict(
+            robot_class=_robot_class,
+            robot_kwargs=dict(
+                init_qpos=_init_qpos
+            ),
+            headless=False,
+            ray_tracing=False
+        ),
+        max_episode_steps=600,
+    )
