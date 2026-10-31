@@ -1,6 +1,8 @@
 <!-- TITLE & BADGES -->
 # 🤖 Galaxea Manipulation Simulator
 
+> **xmem fork:** prompt the G0.5 VLA in this sim from a browser. See [xmem/README.md](xmem/README.md).
+
 <p align="center">
   <img src="assets/webp/R1LiteShoePlace/solution.webp" alt="R1Lite" width="30%">
   <img src="assets/webp/R1ProBlocksStackHard/solution.webp" alt="R1" width="30%">
