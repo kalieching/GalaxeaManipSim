@@ -629,9 +629,24 @@ gym.register(
     ),
     max_episode_steps=400,
 )
+
+# R1 Pro arms at the mean pose of G0.5's real R1 Pro data (g05-base dataset_stats.json,
+# galaxea_r1pro state); from R1PRO_INIT_QPOS, which is outside that data, G0.5 barely moves.
+R1PRO_G05_INIT_QPOS = [
+    0.7, -1.4, -0.9, 0.0,
+    -0.47, -0.59,
+    0.39, -0.47,
+    -0.47, 0.57,
+    -1.56, -1.53,
+    0.40, -0.43,
+    -0.13, -0.12,
+    -0.09, 0.06,
+    0, 0,
+    0, 0,
+]
+
 for _prefix, _robot_class, _init_qpos in [
-    ("R1", R1Robot, R1_INIT_QPOS),
-    ("R1Pro", R1ProRobot, R1PRO_INIT_QPOS),
+    ("R1Pro", R1ProRobot, R1PRO_G05_INIT_QPOS),
     ("R1Lite", R1LiteRobot, R1LITE_INIT_QPOS),
 ]:
     gym.register(
@@ -647,5 +662,5 @@ for _prefix, _robot_class, _init_qpos in [
             headless=False,
             ray_tracing=False
         ),
-        max_episode_steps=600,
+        max_episode_steps=1200,
     )

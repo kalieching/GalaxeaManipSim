@@ -37,14 +37,28 @@ class CubeBowlPlaceEnv(RoboTwinBaseEnv):
     bowl_inner_radius = 0.050
     # a cube lying flat on the bowl floor stands ~0.2 cm above the rim
     rim_tolerance = 0.01
+    # Stiff arm drives so a joint reaches its 15 Hz target in ~1-2 steps, like the real servos
+    # G0.5 was trained on (the robot default 1000/200 needs ~10). Grippers keep the default:
+    # stiff fingers push the cube away instead of grasping it.
+    arm_joint_stiffness = 1e5
+    arm_joint_damping = 4e3
+    # the cube is re-placed until at least this many head-camera pixels show it
+    # (an unoccluded cube covers ~1700 px on R1 Pro, ~2000 px on R1 Lite)
+    min_visible_cube_pixels = 400
 
-    # Placement in the tabletop frame. R1 Lite's head camera only sees the far part of
-    # the table, so its objects sit 4 cm farther out to stay fully in frame.
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for i in list(self.left_arm_joint_indices) + list(self.right_arm_joint_indices):
+            self.active_joints[i].set_drive_property(stiffness=self.arm_joint_stiffness, damping=self.arm_joint_damping)
+
+    # Placement in the tabletop frame. R1 Lite's head camera only sees the far part of the
+    # table, so its objects are as close to the robot as possible while staying fully in that
+    # view. R1 Pro's cube sits ~5 cm from its starting grippers.
     @property
     def placement(self):
         if self.robot_name == "r1_lite":
             return dict(bowl_x=(-0.02, 0.03), bowl_y=0.06, cube_x=(-0.05, 0.04))
-        return dict(bowl_x=(-0.22, -0.16), bowl_y=0.0, cube_x=(-0.12, -0.01))
+        return dict(bowl_x=(-0.22, -0.16), bowl_y=0.0, cube_x=(-0.20, -0.12))
 
     def _setup_bowl(self):
         self.side = np.random.choice([-1, 1])  # +1: cube (and bowl offset) on the robot's left
@@ -88,9 +102,24 @@ class CubeBowlPlaceEnv(RoboTwinBaseEnv):
             self._scene.remove_actor(self.cube)
         self._setup_bowl()
         self._setup_cube()
+        for _ in range(20):
+            if self._cube_visible():
+                break
+            self._scene.remove_actor(self.cube)
+            self._setup_cube()
         if reset_info is not None:
             self.bowl.set_pose(sapien.Pose(reset_info["bowl_pose"][:3], reset_info["bowl_pose"][3:]))
             self.cube.set_pose(sapien.Pose(reset_info["cube_pose"][:3], reset_info["cube_pose"][3:]))
+
+    def _cube_visible(self):
+        """Whether the head camera (G0.5's main view) sees the cube, i.e. no gripper hides it."""
+        if not hasattr(self, "robot"):  # the first reset_world runs before the robot exists
+            return True
+        self._scene.update_render()
+        camera = self.cameras[0]
+        camera.take_picture()
+        segmentation = camera.get_picture("Segmentation")[..., 1]
+        return (segmentation == self.cube.per_scene_id).sum() >= self.min_visible_cube_pixels
 
     def _get_info(self):
         """Success: every cube corner inside the bowl's inner wall and below its rim, cube released."""
@@ -123,7 +152,7 @@ class CubeBowlPlaceEnv(RoboTwinBaseEnv):
 
     @property
     def language_instruction(self):
-        return "Pick up the cube from the tabletop surface and place it in the bowl."
+        return "Pick up the red cube and place it in the bowl."
 
     def get_object_dict(self):
         return dict(
