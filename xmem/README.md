@@ -1,8 +1,8 @@
-# xmem: prompt G0.5 in GalaxeaManipSim
+# xmem: G0.5 in GalaxeaManipSim
 
 Type a prompt in a browser → the [G0.5 VLA](https://github.com/OpenGalaxea/GalaxeaVLA) predicts actions → an R1 Lite or R1 Pro carries them out in this simulator.
 
-![Browser client: R1 Pro reaching for the red cube; scene, head and wrist camera views](browser_r1pro.webp)
+![Browser client: R1 Pro reaching for the red cube; scene, head and wrist camera views](r1pro_sim.webp)
 
 **Requirements:** Linux, an NVIDIA GPU with ≥16 GB free (tested on RTX 5090), `git`, [conda](https://docs.conda.io/en/latest/miniconda.html), [uv](https://docs.astral.sh/uv/getting-started/installation/), a [Hugging Face](https://huggingface.co) account, ~30 GB disk (sim env 6 GB, VLA env 11 GB, weights 12 GB).
 
