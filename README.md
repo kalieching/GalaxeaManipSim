@@ -60,11 +60,9 @@ export PYTHONPATH="your_lerobot_codebase_path:$PYTHONPATH"
 
 **Heads-up:** If you find `dataset` package version conflict. Please clear the package cache in `~/.cache/huggingface/datasets`.
 
-**Download and extract assets:**
+**Download assets** (the original Google Drive link is dead; this pulls the same RoboTwin object meshes from Hugging Face, ~2 min):
 ```
-gdown https://drive.google.com/file/d/1ZvtCv1H4FLrse_ElUWzsVDt8xRK4CyaC/
-unzip robotwin_models.zip
-mv robotwin_models galaxea_sim/assets/
+python -m galaxea_sim.scripts.fetch_assets
 ```
 
 

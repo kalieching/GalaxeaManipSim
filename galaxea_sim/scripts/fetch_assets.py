@@ -1,18 +1,21 @@
-"""Download the object meshes GalaxeaManipSim tasks need into galaxea_sim/assets/robotwin_models.
+"""Download the RoboTwin object meshes into galaxea_sim/assets/robotwin_models.
 
-Replaces the dead Google Drive link in the upstream README:
-  - RoboTwin 1.0 objects.zip (latest)          -> all objects
-  - RoboTwin 1.0 objects.zip @ f1ee6a6          -> 020_hammer_2, tools (removed upstream later)
-  - RoboTwin 2.0 objects.zip, 002_bowl variant 1 -> 002_bowl (CubeBowlPlace)
-Only the needed members of the two older/larger zips are fetched, via HTTP range requests.
+Replaces the dead Google Drive link for robotwin_models.zip:
+  - RoboTwin 1.0 objects.zip (latest)  -> all objects
+  - RoboTwin 1.0 objects.zip @ f1ee6a6  -> 020_hammer_2, tools (removed from later uploads)
+  - RoboTwin 2.0 objects.zip            -> 002_bowl variant 1 (CubeBowlPlace)
+Members of the older and the 2.0 zip are fetched with HTTP range requests, so only they are downloaded.
 """
-import argparse
 import io
 import shutil
 import tempfile
 import urllib.request
 import zipfile
 from pathlib import Path
+
+import tyro
+
+from galaxea_sim import ASSETS_DIR
 
 HF = "https://huggingface.co/datasets/TianxingChen"
 ROBOTWIN1_LATEST = f"{HF}/RoboTwin/resolve/main/objects.zip"
@@ -57,7 +60,7 @@ class HttpRangeFile(io.RawIOBase):
         return data
 
 
-def extract_members(url, dest, mapping):
+def extract_members(url: str, dest: Path, mapping: dict):
     with zipfile.ZipFile(HttpRangeFile(url)) as z:
         for src, rel in mapping.items():
             out = dest / rel
@@ -65,11 +68,7 @@ def extract_members(url, dest, mapping):
             out.write_bytes(z.read(src))
 
 
-def main():
-    repo = Path(__file__).resolve().parents[1]
-    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--dest", type=Path, default=repo / "galaxea_sim/assets/robotwin_models")
-    dest = ap.parse_args().dest
+def main(dest: Path = ASSETS_DIR / "robotwin_models"):
     dest.mkdir(parents=True, exist_ok=True)
 
     print(f"[1/3] RoboTwin 1.0 objects.zip (~300 MB) -> {dest}")
@@ -96,4 +95,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    tyro.cli(main)
