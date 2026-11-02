@@ -8,7 +8,6 @@ import argparse
 import functools
 import io
 import json
-import re
 import threading
 import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -16,7 +15,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import gymnasium as gym
 import msgpack
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageDraw, ImageFont
 from websockets.sync.client import connect
 
 import galaxea_sim.envs  # noqa: F401  (registers envs)
@@ -27,6 +26,7 @@ ROBOTS = {
 }
 GRIPPER_OPEN_M = 0.05  # sim finger joint travel; G0.5 uses 0 (closed) .. 100 (open)
 VIEW_HEIGHT = 360
+LABEL_FONT = ImageFont.load_default(size=18)
 
 
 # ---- msgpack + numpy wire format (same as GalaxeaVLA src/g05/utils/websocket/msgpack.py) ----
@@ -64,7 +64,7 @@ class SimVLARunner:
         self.lock = threading.Lock()
         self.frame = None  # latest JPEG bytes
         self.frame_cond = threading.Condition()
-        self.status = dict(state="idle", prompt="", step=0, success=False, message="", cot="")
+        self.status = dict(state="idle", prompt="", step=0, success=False, message="")
         self.stop_event = threading.Event()
         self.queue = []
         self.wake = threading.Event()
@@ -81,7 +81,8 @@ class SimVLARunner:
 
     # -- worker thread --
     def _loop(self):
-        self._reset_scene()
+        self._reset_scene(new_layout=True)
+        self._set(message="new scene")
         while True:
             self.wake.wait()
             self.wake.clear()
@@ -93,7 +94,8 @@ class SimVLARunner:
                 self.stop_event.clear()
                 try:
                     if kind == "reset":
-                        self._reset_scene()
+                        self._reset_scene(new_layout=True)
+                        self._set(state="idle", step=0, success=False, message="new scene")
                     elif kind == "run":
                         self._run(prompt)
                 except Exception as e:  # keep the UI alive; report the error
@@ -104,9 +106,17 @@ class SimVLARunner:
         with self.lock:
             self.status.update(kw)
 
-    def _reset_scene(self):
-        self.env.reset()
-        self._set(state="idle", step=0, success=False, message="new scene", cot="")
+    def _reset_scene(self, new_layout):
+        """Random new cube/bowl layout, or the current layout again; the robot starts at rest."""
+        if new_layout:
+            _, self.reset_info = self.env.reset()
+        else:
+            self.u.robot.set_qpos(self.u.init_qpos)
+            self.u.robot.robot.set_qvel(np.zeros(len(self.u.init_qpos)))
+            self.u.controller.reset()
+            self.u._init_buffers()
+            self.u.reset_world(self.reset_info)
+            self.u._scene.update_render()
         self._publish_frame()
 
     def _connect(self):
@@ -116,10 +126,11 @@ class SimVLARunner:
         return self.ws
 
     def _run(self, prompt):
+        self._reset_scene(new_layout=False)
         ws = self._connect()
         ws.send(packb({"__reset__": True}))
         unpackb(ws.recv())
-        self._set(state="running", prompt=prompt, step=0, success=False, message="", cot="")
+        self._set(state="running", prompt=prompt, step=0, success=False, message="")
         command = self._current_command()
         need_obs = True
         for step in range(1, self.max_steps + 1):
@@ -135,9 +146,6 @@ class SimVLARunner:
             info = self.u.step(np.concatenate(
                 [command["left_arm"], command["left_gripper"], command["right_arm"], command["right_gripper"]]
             ))[-1]
-            if resp.get("cot_text"):
-                # keep G0.5's readable reasoning (subtask, bbox, ...), drop raw action tokens
-                self._set(cot=re.sub(r"<[^>]*>|\|", " ", resp["cot_text"]).strip())
             self._set(step=step, success=bool(info["success"]))
             self._publish_frame()
             if info["success"]:
@@ -196,13 +204,28 @@ class SimVLARunner:
         return (camera.get_picture("Color")[..., :3] * 255).clip(0, 255).astype(np.uint8)
 
     def _publish_frame(self):
-        views = [self._rgb(self.u.default_camera), self._rgb(self.u.cameras[0])]
-        views = [Image.fromarray(v).resize((int(v.shape[1] * VIEW_HEIGHT / v.shape[0]), VIEW_HEIGHT)) for v in views]
-        canvas = Image.new("RGB", (sum(v.width for v in views), VIEW_HEIGHT))
-        x = 0
-        for v in views:
-            canvas.paste(v, (x, 0))
-            x += v.width
+        """2x2 grid: scene | head (top), left wrist | right wrist (bottom), each row centered."""
+        head, left, right = self.u.cameras
+        rows = [
+            [("scene", self.u.default_camera), ("head (G0.5)", head)],
+            [("left wrist (G0.5)", left), ("right wrist (G0.5)", right)],
+        ]
+        tiles = [
+            [(label, Image.fromarray(img).resize((int(img.shape[1] * VIEW_HEIGHT / img.shape[0]), VIEW_HEIGHT)))
+             for label, img in ((label, self._rgb(cam)) for label, cam in row)]
+            for row in rows
+        ]
+        width = max(sum(t.width for _, t in row) for row in tiles)
+        canvas = Image.new("RGB", (width, VIEW_HEIGHT * len(tiles)), (17, 17, 17))
+        draw = ImageDraw.Draw(canvas)
+        for r, row in enumerate(tiles):
+            x = (width - sum(t.width for _, t in row)) // 2
+            for label, tile in row:
+                canvas.paste(tile, (x, r * VIEW_HEIGHT))
+                box = draw.textbbox((x + 8, r * VIEW_HEIGHT + 6), label, font=LABEL_FONT)
+                draw.rectangle((box[0] - 4, box[1] - 3, box[2] + 4, box[3] + 3), fill=(0, 0, 0))
+                draw.text((x + 8, r * VIEW_HEIGHT + 6), label, font=LABEL_FONT, fill=(255, 255, 255))
+                x += tile.width
         buf = io.BytesIO()
         canvas.save(buf, format="JPEG", quality=80)
         with self.frame_cond:
@@ -217,20 +240,18 @@ img{max-width:100%;border:1px solid #333}
 form{display:flex;gap:8px;margin:12px 0}
 input{flex:1;padding:8px;font-size:15px;background:#222;color:#eee;border:1px solid #444}
 button{padding:8px 14px;font-size:15px}
-pre{white-space:pre-wrap;background:#1b1b1b;padding:8px;font-size:12px;max-height:8em;overflow:auto}
 </style></head><body>
 <h3>__TITLE__</h3>
-<img src="/stream" alt="sim view (scene camera | head camera)">
+<img src="/stream" alt="sim views: scene, head, left wrist, right wrist">
 <form onsubmit="post('/run');return false">
 <input id="p" value="__PROMPT__"><button>Run</button>
 <button type="button" onclick="post('/stop')">Stop</button>
 <button type="button" onclick="post('/reset')">New scene</button></form>
-<div id="s"></div><pre id="c"></pre>
+<div id="s"></div>
 <script>
 function post(u){fetch(u,{method:'POST',body:document.getElementById('p').value})}
 setInterval(async()=>{const s=await (await fetch('/status')).json();
-document.getElementById('s').textContent=`${s.state} | step ${s.step} | success ${s.success} | ${s.message}`;
-document.getElementById('c').textContent=s.cot||''},500);
+document.getElementById('s').textContent=`${s.state} | step ${s.step} | success ${s.success} | ${s.message}`;},500);
 </script></body></html>"""
 
 
@@ -293,13 +314,19 @@ def main():
     ap.add_argument("--robot", choices=ROBOTS, default="r1lite")
     ap.add_argument("--server", default="ws://127.0.0.1:8765", help="policy server URL")
     ap.add_argument("--port", type=int, default=8000, help="web page port (bound to 127.0.0.1)")
-    ap.add_argument("--max-steps", type=int, default=900, help="steps per prompt (15 Hz)")
+    ap.add_argument("--max-steps", type=int, default=1200, help="steps per prompt (15 Hz)")
     args = ap.parse_args()
 
     runner = SimVLARunner(args.robot, args.server, args.max_steps)
     httpd = ThreadingHTTPServer(("127.0.0.1", args.port), make_handler(runner, f"{runner.cfg['env']} ← G0.5"))
+    httpd.daemon_threads = True  # open /stream connections must not keep the process alive after Ctrl+C
     print(f"Open http://127.0.0.1:{args.port} (policy server: {args.server})", flush=True)
-    httpd.serve_forever()
+    try:
+        httpd.serve_forever()
+    except KeyboardInterrupt:
+        pass
+    finally:
+        httpd.server_close()
 
 
 if __name__ == "__main__":
