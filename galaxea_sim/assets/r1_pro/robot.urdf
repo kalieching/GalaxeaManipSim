@@ -1171,7 +1171,7 @@
         rpy="0 0 0" />
       <geometry>
         <box
-             size="0.06 0.01 0.04"/>
+             size="0.04 0.01 0.06"/>
       </geometry>
     </collision>
   </link>
@@ -1225,7 +1225,7 @@
         rpy="0 0 0" />
       <geometry>
         <box
-             size="0.06 0.01 0.04"/>
+             size="0.04 0.01 0.06"/>
       </geometry>
     </collision>
   </link>
@@ -1804,7 +1804,7 @@
         rpy="0 0 0" />
       <geometry>
         <box
-             size="0.06 0.01 0.04"/>
+             size="0.04 0.01 0.06"/>
       </geometry>
     </collision>
   </link>
@@ -1858,7 +1858,7 @@
         rpy="0 0 0" />
       <geometry>
         <box
-             size="0.06 0.01 0.04"/>
+             size="0.04 0.01 0.06"/>
       </geometry>
     </collision>
   </link>
