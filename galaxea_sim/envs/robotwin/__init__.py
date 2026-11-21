@@ -631,7 +631,7 @@ gym.register(
 )
 
 # R1 Pro arms at the mean pose of G0.5's real R1 Pro data (g05-base dataset_stats.json,
-# galaxea_r1pro state); from R1PRO_INIT_QPOS, which is outside that data, G0.5 barely moves.
+# galaxea_r1pro state). From R1PRO_INIT_QPOS, which is outside that data, G0.5 barely moves.
 R1PRO_G05_INIT_QPOS = [
     0.7, -1.4, -0.9, 0.0,
     -0.47, -0.59,
@@ -663,4 +663,16 @@ for _prefix, _robot_class, _init_qpos in [
             ray_tracing=False
         ),
         max_episode_steps=1200,
+    )
+
+for _prefix, _robot_class, _init_qpos in [
+    ("R1Pro", R1ProRobot, R1PRO_G05_INIT_QPOS),
+    ("R1Lite", R1LiteRobot, R1LITE_INIT_QPOS),
+]:
+    gym.register(
+        id=f'{_prefix}Kitting-v0',
+        entry_point='galaxea_sim.envs.robotwin.kitting:KittingEnv',
+        disable_env_checker=True,
+        order_enforce=False,
+        kwargs=dict(robot_class=_robot_class, robot_kwargs=dict(init_qpos=_init_qpos), headless=False, ray_tracing=False),
     )

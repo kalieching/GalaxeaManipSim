@@ -67,6 +67,7 @@ aloha_maniskill_sim
 notebooks
 datasets
 robotwin_models
+robotwin2_models
 outputs
 replay_results
 *.zip

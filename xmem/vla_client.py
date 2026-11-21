@@ -5,7 +5,6 @@ Steps the sim with actions from a running GalaxeaVLA policy server
 box, and Run/Stop buttons. See xmem/README.md.
 """
 import argparse
-import functools
 import io
 import json
 import threading
@@ -13,54 +12,29 @@ import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 import gymnasium as gym
-import msgpack
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
-from websockets.sync.client import connect
 
 import galaxea_sim.envs  # noqa: F401  (registers envs)
+from policy_client import G05Policy, rgb
 
 ROBOTS = {
     "r1lite": dict(env="R1LiteCubeBowlPlace-v0", embodiment="galaxea_r1lite"),
     "r1pro": dict(env="R1ProCubeBowlPlace-v0", embodiment="galaxea_r1pro"),
 }
-GRIPPER_OPEN_M = 0.05  # sim finger joint travel; G0.5 uses 0 (closed) .. 100 (open)
 VIEW_HEIGHT = 360
 LABEL_FONT = ImageFont.load_default(size=18)
 
 
-# ---- msgpack + numpy wire format (same as GalaxeaVLA src/g05/utils/websocket/msgpack.py) ----
-def _pack(obj):
-    if isinstance(obj, np.ndarray):
-        return {"__ndarray__": True, "data": obj.tobytes(), "dtype": obj.dtype.str, "shape": obj.shape}
-    if isinstance(obj, np.generic):
-        return {"__npgeneric__": True, "data": obj.item(), "dtype": obj.dtype.str}
-    return obj
-
-
-def _unpack(obj):
-    obj = {(k.decode() if isinstance(k, bytes) else k): v for k, v in obj.items()}
-    if "__ndarray__" in obj:
-        return np.ndarray(buffer=obj["data"], dtype=np.dtype(obj["dtype"]), shape=tuple(obj["shape"]))
-    if "__npgeneric__" in obj:
-        return np.dtype(obj["dtype"]).type(obj["data"])
-    return obj
-
-
-packb = functools.partial(msgpack.packb, default=_pack)
-unpackb = functools.partial(msgpack.unpackb, object_hook=_unpack)
-
-
 class SimVLARunner:
-    """Owns the env and the policy connection; all sim calls happen on one thread."""
+    """Owns the env and the policy connection. All sim calls happen on one thread."""
 
     def __init__(self, robot: str, server: str, max_steps: int):
         self.cfg = ROBOTS[robot]
-        self.server = server
         self.max_steps = max_steps
         self.env = gym.make(self.cfg["env"], headless=True, obs_mode="state")
         self.u = self.env.unwrapped
-        self.ws = None
+        self.policy = G05Policy(server, self.cfg["embodiment"])
         self.lock = threading.Lock()
         self.frame = None  # latest JPEG bytes
         self.frame_cond = threading.Condition()
@@ -98,16 +72,16 @@ class SimVLARunner:
                         self._set(state="idle", step=0, success=False, message="new scene")
                     elif kind == "run":
                         self._run(prompt)
-                except Exception as e:  # keep the UI alive; report the error
+                except Exception as e:  # keep the UI alive and report the error
                     self._set(state="error", message=f"{type(e).__name__}: {e}")
-                    self.ws = None
+                    self.policy.ws = None
 
     def _set(self, **kw):
         with self.lock:
             self.status.update(kw)
 
     def _reset_scene(self, new_layout):
-        """Random new cube/bowl layout, or the current layout again; the robot starts at rest."""
+        """Random new cube/bowl layout, or the current layout again. The robot starts at rest."""
         if new_layout:
             _, self.reset_info = self.env.reset()
         else:
@@ -119,89 +93,21 @@ class SimVLARunner:
             self.u._scene.update_render()
         self._publish_frame()
 
-    def _connect(self):
-        if self.ws is None:
-            self.ws = connect(self.server, max_size=None, open_timeout=10)
-            unpackb(self.ws.recv())  # server hello: {"action_steps": N}
-        return self.ws
-
     def _run(self, prompt):
         self._reset_scene(new_layout=False)
-        ws = self._connect()
-        ws.send(packb({"__reset__": True}))
-        unpackb(ws.recv())
+        self.policy.reset(self.u)
         self._set(state="running", prompt=prompt, step=0, success=False, message="")
-        command = self._current_command()
-        need_obs = True
         for step in range(1, self.max_steps + 1):
             if self.stop_event.is_set():
                 self._set(state="stopped", message=f"stopped at step {step - 1}")
                 return
-            ws.send(packb(self._observation(prompt) if need_obs else {}))
-            resp = unpackb(ws.recv())
-            if "error" in resp:
-                raise RuntimeError(resp["error"].get("message", resp["error"]))
-            need_obs = resp.get("need_obs", True)
-            command = self._apply(resp["action"], command)
-            info = self.u.step(np.concatenate(
-                [command["left_arm"], command["left_gripper"], command["right_arm"], command["right_gripper"]]
-            ))[-1]
+            info = self.u.step(self.policy.act(self.u, prompt)[0])[-1]
             self._set(step=step, success=bool(info["success"]))
             self._publish_frame()
             if info["success"]:
                 self._set(state="done", message=f"success at step {step}")
                 return
         self._set(state="done", message=f"no success after {self.max_steps} steps")
-
-    # -- sim <-> G0.5 conversions --
-    def _gripper_state(self, indices):
-        return self.u.robot.get_qpos()[indices[0]] / GRIPPER_OPEN_M * 100.0
-
-    def _observation(self, prompt):
-        qpos = self.u.robot.get_qpos()
-        head, left, right = self.u.cameras
-        return dict(
-            images=dict(
-                head_rgb=self._rgb(head).transpose(2, 0, 1),
-                left_wrist_rgb=self._rgb(left).transpose(2, 0, 1),
-                right_wrist_rgb=self._rgb(right).transpose(2, 0, 1),
-            ),
-            state=dict(
-                left_arm=qpos[self.u.left_arm_joint_indices].astype(np.float32),
-                left_gripper=np.float32([self._gripper_state(self.u.left_gripper_joint_indices)]),
-                right_arm=qpos[self.u.right_arm_joint_indices].astype(np.float32),
-                right_gripper=np.float32([self._gripper_state(self.u.right_gripper_joint_indices)]),
-            ),
-            task=prompt,
-            embodiment_type=self.cfg["embodiment"],
-        )
-
-    def _current_command(self):
-        qpos = self.u.robot.get_qpos()
-        return dict(
-            left_arm=qpos[self.u.left_arm_joint_indices],
-            left_gripper=np.array([self.u.last_gripper_cmd[0]]),
-            right_arm=qpos[self.u.right_arm_joint_indices],
-            right_gripper=np.array([self.u.last_gripper_cmd[1]]),
-        )
-
-    def _apply(self, action, command):
-        """Overwrite predicted parts; parts G0.5 left out keep their last command."""
-        command = dict(command)
-        for arm in ("left_arm", "right_arm"):
-            if arm in action:
-                command[arm] = np.asarray(action[arm], dtype=np.float64).reshape(-1)
-        for grip in ("left_gripper", "right_gripper"):
-            if grip in action:
-                g = float(np.asarray(action[grip]).reshape(-1)[0])
-                command[grip] = np.array([np.clip(g / 100.0, 0.0, 1.0) * GRIPPER_OPEN_M])
-        return command
-
-    # -- rendering --
-    @staticmethod
-    def _rgb(camera):
-        camera.take_picture()
-        return (camera.get_picture("Color")[..., :3] * 255).clip(0, 255).astype(np.uint8)
 
     def _publish_frame(self):
         """2x2 grid: scene | head (top), left wrist | right wrist (bottom), each row centered."""
@@ -212,7 +118,7 @@ class SimVLARunner:
         ]
         tiles = [
             [(label, Image.fromarray(img).resize((int(img.shape[1] * VIEW_HEIGHT / img.shape[0]), VIEW_HEIGHT)))
-             for label, img in ((label, self._rgb(cam)) for label, cam in row)]
+             for label, img in ((label, rgb(cam)) for label, cam in row)]
             for row in rows
         ]
         width = max(sum(t.width for _, t in row) for row in tiles)

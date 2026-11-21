@@ -1,0 +1,1928 @@
+{
+ "robots": [
+  "R1Lite",
+  "R1Pro"
+ ],
+ "layouts": {
+  "0": [
+   [
+    {
+     "kind": "container",
+     "model": "063_tabletrashbin",
+     "variant": 0,
+     "name": "orange bin",
+     "x": 0.5643557025589117,
+     "y": 0.03850779178143331,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "086_woodenblock",
+     "variant": 1,
+     "name": "wooden block",
+     "x": 0.5129573169716624,
+     "y": -0.1638499705854839,
+     "yaw": 0.9659846748575743
+    },
+    {
+     "kind": "object",
+     "model": "113_coffee-box",
+     "variant": 6,
+     "name": "white coffee box",
+     "x": 0.4861136966912075,
+     "y": -0.3423244894789014,
+     "yaw": 2.58139490477727
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 6,
+     "name": "red can",
+     "x": 0.5807402322365511,
+     "y": 0.2978887244544907,
+     "yaw": 2.1044381209322878
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "063_tabletrashbin",
+     "variant": 0,
+     "name": "orange bin",
+     "x": 0.556631375758297,
+     "y": -0.016960575133036608,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "086_woodenblock",
+     "variant": 1,
+     "name": "wooden block",
+     "x": 0.5095044109082194,
+     "y": -0.1699020107142179,
+     "yaw": 1.7450508608442694
+    },
+    {
+     "kind": "object",
+     "model": "113_coffee-box",
+     "variant": 6,
+     "name": "white coffee box",
+     "x": 0.49820695434027173,
+     "y": -0.2978592891199039,
+     "yaw": 1.9999671591381927
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 6,
+     "name": "red can",
+     "x": 0.4999622313444194,
+     "y": 0.1858030787059073,
+     "yaw": 1.0601808620943411
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "063_tabletrashbin",
+     "variant": 0,
+     "name": "orange bin",
+     "x": 0.5137025818061469,
+     "y": 0.03897122174203196,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "086_woodenblock",
+     "variant": 1,
+     "name": "wooden block",
+     "x": 0.5339425802491974,
+     "y": -0.20249419793268797,
+     "yaw": 1.09857447099022
+    },
+    {
+     "kind": "object",
+     "model": "113_coffee-box",
+     "variant": 6,
+     "name": "white coffee box",
+     "x": 0.48527555432981534,
+     "y": 0.31645515347050723,
+     "yaw": 0.27323925953681727
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 6,
+     "name": "red can",
+     "x": 0.48080143950498977,
+     "y": -0.3192940654245109,
+     "yaw": 2.8055192610675013
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "063_tabletrashbin",
+     "variant": 0,
+     "name": "orange bin",
+     "x": 0.5607620171999933,
+     "y": -0.008569165750267914,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "086_woodenblock",
+     "variant": 1,
+     "name": "wooden block",
+     "x": 0.5081444015053764,
+     "y": -0.23364246830458907,
+     "yaw": 1.013491453219882
+    },
+    {
+     "kind": "object",
+     "model": "113_coffee-box",
+     "variant": 6,
+     "name": "white coffee box",
+     "x": 0.5689386779212743,
+     "y": -0.33596081734535527,
+     "yaw": 3.097283951757242
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 6,
+     "name": "red can",
+     "x": 0.4753055741705878,
+     "y": 0.15932459430075951,
+     "yaw": 0.8502877402071288
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "063_tabletrashbin",
+     "variant": 0,
+     "name": "orange bin",
+     "x": 0.5266034552424536,
+     "y": -0.0172085747481513,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "086_woodenblock",
+     "variant": 1,
+     "name": "wooden block",
+     "x": 0.4973819251975224,
+     "y": 0.3093388785656579,
+     "yaw": 1.9227077377860882
+    },
+    {
+     "kind": "object",
+     "model": "113_coffee-box",
+     "variant": 6,
+     "name": "white coffee box",
+     "x": 0.4917968706599278,
+     "y": -0.3093118344582378,
+     "yaw": 2.732926382402305
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 6,
+     "name": "red can",
+     "x": 0.5837482141541781,
+     "y": -0.22953093323796292,
+     "yaw": 3.105799978698463
+    }
+   ]
+  ],
+  "1": [
+   [
+    {
+     "kind": "container",
+     "model": "110_basket",
+     "variant": 1,
+     "name": "yellow basket",
+     "x": 0.5699774718907711,
+     "y": 0.009898238198325714,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "cube",
+     "variant": 0,
+     "name": "red cube",
+     "x": 0.46724436817604453,
+     "y": -0.21262475615569776,
+     "yaw": 1.184835145408196
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 0,
+     "name": "white can",
+     "x": 0.5392163904236259,
+     "y": 0.3100298667844674,
+     "yaw": 0.20869204570462854
+    },
+    {
+     "kind": "object",
+     "model": "059_pencup",
+     "variant": 5,
+     "name": "blue pen cup",
+     "x": 0.5472422720775939,
+     "y": 0.17062856481112154,
+     "yaw": 1.9238591639528657
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "110_basket",
+     "variant": 1,
+     "name": "yellow basket",
+     "x": 0.5527335923735133,
+     "y": -0.017424620704436452,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "cube",
+     "variant": 0,
+     "name": "red cube",
+     "x": 0.47746732886738225,
+     "y": 0.22927999294757606,
+     "yaw": 0.07741402830053729
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 0,
+     "name": "white can",
+     "x": 0.5835493294779253,
+     "y": -0.20186153640526028,
+     "yaw": 2.420008493411816
+    },
+    {
+     "kind": "object",
+     "model": "059_pencup",
+     "variant": 5,
+     "name": "blue pen cup",
+     "x": 0.5580658198221252,
+     "y": -0.32312883040836626,
+     "yaw": 1.4741131534167626
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "110_basket",
+     "variant": 1,
+     "name": "yellow basket",
+     "x": 0.5709079740781507,
+     "y": 0.0036380574511785738,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "cube",
+     "variant": 0,
+     "name": "red cube",
+     "x": 0.4875747125011959,
+     "y": -0.12573320814201885,
+     "yaw": 0.05989124730173208
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 0,
+     "name": "white can",
+     "x": 0.5853389788864909,
+     "y": 0.15853731302770452,
+     "yaw": 3.1090720154620293
+    },
+    {
+     "kind": "object",
+     "model": "059_pencup",
+     "variant": 5,
+     "name": "blue pen cup",
+     "x": 0.5350930710964141,
+     "y": 0.32774542395964945,
+     "yaw": 2.397209210295731
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "110_basket",
+     "variant": 1,
+     "name": "yellow basket",
+     "x": 0.5740413673498773,
+     "y": 0.03785283454595419,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "cube",
+     "variant": 0,
+     "name": "red cube",
+     "x": 0.5674021590226244,
+     "y": 0.3418005612874453,
+     "yaw": 0.7840518098314858
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 0,
+     "name": "white can",
+     "x": 0.5562055561465138,
+     "y": 0.22163388017326469,
+     "yaw": 2.1933120315640067
+    },
+    {
+     "kind": "object",
+     "model": "059_pencup",
+     "variant": 5,
+     "name": "blue pen cup",
+     "x": 0.5367329434979717,
+     "y": -0.1431489294553109,
+     "yaw": 1.1999686628430475
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "110_basket",
+     "variant": 1,
+     "name": "yellow basket",
+     "x": 0.5461785492549603,
+     "y": 0.007576674467616805,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "cube",
+     "variant": 0,
+     "name": "red cube",
+     "x": 0.5766233777421944,
+     "y": 0.3209083858695675,
+     "yaw": 1.921684445496964
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 0,
+     "name": "white can",
+     "x": 0.5299130761236425,
+     "y": -0.32929820389082576,
+     "yaw": 2.63095704442241
+    },
+    {
+     "kind": "object",
+     "model": "059_pencup",
+     "variant": 5,
+     "name": "blue pen cup",
+     "x": 0.4941307284235944,
+     "y": 0.16516648951372023,
+     "yaw": 2.8957072278916267
+    }
+   ]
+  ],
+  "2": [
+   [
+    {
+     "kind": "container",
+     "model": "110_basket",
+     "variant": 1,
+     "name": "yellow basket",
+     "x": 0.5720269380984597,
+     "y": 0.03782096022315163,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "073_rubikscube",
+     "variant": 0,
+     "name": "Rubik's cube",
+     "x": 0.5836710959113587,
+     "y": -0.15160403860976823,
+     "yaw": 0.9988008023974131
+    },
+    {
+     "kind": "object",
+     "model": "112_tea-box",
+     "variant": 2,
+     "name": "teal tea box",
+     "x": 0.46632868694684765,
+     "y": 0.3194683115700453,
+     "yaw": 3.0111671381850336
+    },
+    {
+     "kind": "object",
+     "model": "105_sauce-can",
+     "variant": 5,
+     "name": "sauce jar",
+     "x": 0.5902006692474138,
+     "y": 0.2928060878744172,
+     "yaw": 2.6549108891501927
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "110_basket",
+     "variant": 1,
+     "name": "yellow basket",
+     "x": 0.5654449741026304,
+     "y": 0.009329508577627134,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "073_rubikscube",
+     "variant": 0,
+     "name": "Rubik's cube",
+     "x": 0.5706389936027472,
+     "y": -0.305984019378827,
+     "yaw": 0.9898781231613221
+    },
+    {
+     "kind": "object",
+     "model": "112_tea-box",
+     "variant": 2,
+     "name": "teal tea box",
+     "x": 0.47467170168119327,
+     "y": -0.3074698045825841,
+     "yaw": 1.6382134828281196
+    },
+    {
+     "kind": "object",
+     "model": "105_sauce-can",
+     "variant": 5,
+     "name": "sauce jar",
+     "x": 0.5729728637035534,
+     "y": 0.3388852436775793,
+     "yaw": 0.5009730454301218
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "110_basket",
+     "variant": 1,
+     "name": "yellow basket",
+     "x": 0.5573488162193238,
+     "y": -0.016195200622682843,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "073_rubikscube",
+     "variant": 0,
+     "name": "Rubik's cube",
+     "x": 0.47983183124150847,
+     "y": 0.2492853086064837,
+     "yaw": 1.183801228158884
+    },
+    {
+     "kind": "object",
+     "model": "112_tea-box",
+     "variant": 2,
+     "name": "teal tea box",
+     "x": 0.5795425723374715,
+     "y": 0.32690875292209765,
+     "yaw": 1.6133351305238486
+    },
+    {
+     "kind": "object",
+     "model": "105_sauce-can",
+     "variant": 5,
+     "name": "sauce jar",
+     "x": 0.5619190171930895,
+     "y": -0.28081810533512175,
+     "yaw": 2.8571269494360285
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "110_basket",
+     "variant": 1,
+     "name": "yellow basket",
+     "x": 0.5488598871148642,
+     "y": 0.03219926042237287,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "073_rubikscube",
+     "variant": 0,
+     "name": "Rubik's cube",
+     "x": 0.554009331052716,
+     "y": -0.1827086942914581,
+     "yaw": 1.8165785456533239
+    },
+    {
+     "kind": "object",
+     "model": "112_tea-box",
+     "variant": 2,
+     "name": "teal tea box",
+     "x": 0.5266837778293427,
+     "y": -0.3155561188971559,
+     "yaw": 1.0017123987381935
+    },
+    {
+     "kind": "object",
+     "model": "105_sauce-can",
+     "variant": 5,
+     "name": "sauce jar",
+     "x": 0.5540681445356692,
+     "y": 0.2530097217190317,
+     "yaw": 1.4768248969998574
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "110_basket",
+     "variant": 1,
+     "name": "yellow basket",
+     "x": 0.5724539414143504,
+     "y": -0.007844482722715887,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "073_rubikscube",
+     "variant": 0,
+     "name": "Rubik's cube",
+     "x": 0.4833768413038307,
+     "y": 0.1946573280037548,
+     "yaw": 0.8869728020320424
+    },
+    {
+     "kind": "object",
+     "model": "112_tea-box",
+     "variant": 2,
+     "name": "teal tea box",
+     "x": 0.5959004626856563,
+     "y": 0.3081833245327317,
+     "yaw": 2.614377450463326
+    },
+    {
+     "kind": "object",
+     "model": "105_sauce-can",
+     "variant": 5,
+     "name": "sauce jar",
+     "x": 0.5267108954559108,
+     "y": -0.15225911525247912,
+     "yaw": 0.3779731883984865
+    }
+   ]
+  ],
+  "3": [
+   [
+    {
+     "kind": "container",
+     "model": "062_plasticbox",
+     "variant": 2,
+     "name": "white box",
+     "x": 0.5852953914397858,
+     "y": 0.03190919962660881,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "112_tea-box",
+     "variant": 1,
+     "name": "red tea box",
+     "x": 0.5196644672826037,
+     "y": 0.25118147798352175,
+     "yaw": 0.1774215792767165
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 5,
+     "name": "brown can",
+     "x": 0.5181679201002437,
+     "y": 0.3574340866174216,
+     "yaw": 3.1279017526048984
+    },
+    {
+     "kind": "object",
+     "model": "109_hydrating-oil",
+     "variant": 0,
+     "name": "yellow bottle",
+     "x": 0.5863794932057791,
+     "y": -0.12918630367490413,
+     "yaw": 1.483407080104981
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "062_plasticbox",
+     "variant": 2,
+     "name": "white box",
+     "x": 0.5429054508564427,
+     "y": -0.025091710129128586,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "112_tea-box",
+     "variant": 1,
+     "name": "red tea box",
+     "x": 0.5578879312244373,
+     "y": 0.16589768847599098,
+     "yaw": 0.8167513964210302
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 5,
+     "name": "brown can",
+     "x": 0.4928781439702659,
+     "y": -0.24274500410130792,
+     "yaw": 0.6383467884380224
+    },
+    {
+     "kind": "object",
+     "model": "109_hydrating-oil",
+     "variant": 0,
+     "name": "yellow bottle",
+     "x": 0.5571722591291587,
+     "y": -0.35892589908787187,
+     "yaw": 3.0974968193719827
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "062_plasticbox",
+     "variant": 2,
+     "name": "white box",
+     "x": 0.571768797567876,
+     "y": 0.02674952899089888,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "112_tea-box",
+     "variant": 1,
+     "name": "red tea box",
+     "x": 0.590620374401946,
+     "y": 0.31145874822191427,
+     "yaw": 1.8808473480545498
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 5,
+     "name": "brown can",
+     "x": 0.4873701088316853,
+     "y": 0.1853151071061707,
+     "yaw": 1.4544468824266747
+    },
+    {
+     "kind": "object",
+     "model": "109_hydrating-oil",
+     "variant": 0,
+     "name": "yellow bottle",
+     "x": 0.5225160607522579,
+     "y": -0.2781482909692512,
+     "yaw": 2.44982255687704
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "062_plasticbox",
+     "variant": 2,
+     "name": "white box",
+     "x": 0.5525815029893696,
+     "y": -0.03742065404405455,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "112_tea-box",
+     "variant": 1,
+     "name": "red tea box",
+     "x": 0.5176696253884435,
+     "y": -0.24726641114213102,
+     "yaw": 1.804091311930143
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 5,
+     "name": "brown can",
+     "x": 0.5366963155439336,
+     "y": -0.3600923451692031,
+     "yaw": 3.0452947203546628
+    },
+    {
+     "kind": "object",
+     "model": "109_hydrating-oil",
+     "variant": 0,
+     "name": "yellow bottle",
+     "x": 0.5809225111568537,
+     "y": 0.1632775501385415,
+     "yaw": 0.7947280579396307
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "062_plasticbox",
+     "variant": 2,
+     "name": "white box",
+     "x": 0.5487470539057123,
+     "y": 0.021161860512774452,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "112_tea-box",
+     "variant": 1,
+     "name": "red tea box",
+     "x": 0.5097546642641644,
+     "y": -0.21394647844114895,
+     "yaw": 1.1232595208427298
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 5,
+     "name": "brown can",
+     "x": 0.5850044833514816,
+     "y": -0.3280406661433602,
+     "yaw": 3.000858446667766
+    },
+    {
+     "kind": "object",
+     "model": "109_hydrating-oil",
+     "variant": 0,
+     "name": "yellow bottle",
+     "x": 0.5610840243912831,
+     "y": 0.21631108764931586,
+     "yaw": 0.5674316380551496
+    }
+   ]
+  ],
+  "4": [
+   [
+    {
+     "kind": "container",
+     "model": "062_plasticbox",
+     "variant": 2,
+     "name": "white box",
+     "x": 0.5264775473075236,
+     "y": -0.03518233396561399,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "cube",
+     "variant": 0,
+     "name": "red cube",
+     "x": 0.4932934125185388,
+     "y": -0.3220659676553067,
+     "yaw": 0.3349540939907722
+    },
+    {
+     "kind": "object",
+     "model": "112_tea-box",
+     "variant": 2,
+     "name": "teal tea box",
+     "x": 0.5118701383960875,
+     "y": 0.2640187507302729,
+     "yaw": 2.4544085709063284
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 5,
+     "name": "brown can",
+     "x": 0.46937015980105135,
+     "y": 0.1310726376110213,
+     "yaw": 3.099536416513049
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "062_plasticbox",
+     "variant": 2,
+     "name": "white box",
+     "x": 0.5442727047226196,
+     "y": 0.02854288503858341,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "cube",
+     "variant": 0,
+     "name": "red cube",
+     "x": 0.5757954922260725,
+     "y": -0.28468466768265915,
+     "yaw": 1.819877587947052
+    },
+    {
+     "kind": "object",
+     "model": "112_tea-box",
+     "variant": 2,
+     "name": "teal tea box",
+     "x": 0.47095930449925466,
+     "y": -0.14482677790352327,
+     "yaw": 2.4632346983648477
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 5,
+     "name": "brown can",
+     "x": 0.5191193351184981,
+     "y": 0.299933301762217,
+     "yaw": 1.2837838594690612
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "062_plasticbox",
+     "variant": 2,
+     "name": "white box",
+     "x": 0.5506060051452722,
+     "y": 0.01691521207798294,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "cube",
+     "variant": 0,
+     "name": "red cube",
+     "x": 0.5506955023948756,
+     "y": 0.33503041966627595,
+     "yaw": 0.5984456859437373
+    },
+    {
+     "kind": "object",
+     "model": "112_tea-box",
+     "variant": 2,
+     "name": "teal tea box",
+     "x": 0.5669820976560049,
+     "y": 0.1887758377784058,
+     "yaw": 2.9980692601686805
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 5,
+     "name": "brown can",
+     "x": 0.5802689206398476,
+     "y": -0.34437532699125645,
+     "yaw": 2.8794378159690392
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "062_plasticbox",
+     "variant": 2,
+     "name": "white box",
+     "x": 0.5761929922661013,
+     "y": 0.023052424096860057,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "cube",
+     "variant": 0,
+     "name": "red cube",
+     "x": 0.5846634381545811,
+     "y": -0.2522179210558838,
+     "yaw": 0.22218816592203405
+    },
+    {
+     "kind": "object",
+     "model": "112_tea-box",
+     "variant": 2,
+     "name": "teal tea box",
+     "x": 0.5124418031236015,
+     "y": -0.2498360038011048,
+     "yaw": 3.116922531118129
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 5,
+     "name": "brown can",
+     "x": 0.5302144590877426,
+     "y": 0.2479209026314823,
+     "yaw": 2.847449194638706
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "062_plasticbox",
+     "variant": 2,
+     "name": "white box",
+     "x": 0.5510684858230983,
+     "y": -0.006466049231416096,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "cube",
+     "variant": 0,
+     "name": "red cube",
+     "x": 0.45894905944959985,
+     "y": -0.2925955118126151,
+     "yaw": 0.6621923259948965
+    },
+    {
+     "kind": "object",
+     "model": "112_tea-box",
+     "variant": 2,
+     "name": "teal tea box",
+     "x": 0.482805559298488,
+     "y": 0.2318508541083314,
+     "yaw": 2.2532064149314652
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 5,
+     "name": "brown can",
+     "x": 0.5303444967587971,
+     "y": 0.3462964008974506,
+     "yaw": 3.0755734951963922
+    }
+   ]
+  ],
+  "5": [
+   [
+    {
+     "kind": "container",
+     "model": "007_shoe-box",
+     "variant": 0,
+     "name": "orange shoe box",
+     "x": 0.526283498843269,
+     "y": -0.03607053317917994,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "112_tea-box",
+     "variant": 1,
+     "name": "red tea box",
+     "x": 0.5882660363152975,
+     "y": -0.30707730409004463,
+     "yaw": 1.2834363051889706
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 0,
+     "name": "white can",
+     "x": 0.5094044058369603,
+     "y": 0.3087731304329979,
+     "yaw": 0.11826460145002202
+    },
+    {
+     "kind": "object",
+     "model": "059_pencup",
+     "variant": 5,
+     "name": "blue pen cup",
+     "x": 0.5888463460969888,
+     "y": 0.19797676419503119,
+     "yaw": 1.3483416292751789
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "007_shoe-box",
+     "variant": 0,
+     "name": "orange shoe box",
+     "x": 0.567308431898192,
+     "y": 0.03690813193544396,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "112_tea-box",
+     "variant": 1,
+     "name": "red tea box",
+     "x": 0.48565077356299086,
+     "y": -0.34508073047081333,
+     "yaw": 2.5638740527801964
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 0,
+     "name": "white can",
+     "x": 0.5192583452281585,
+     "y": 0.32674966260043975,
+     "yaw": 0.39694948883420306
+    },
+    {
+     "kind": "object",
+     "model": "059_pencup",
+     "variant": 5,
+     "name": "blue pen cup",
+     "x": 0.5368350614873083,
+     "y": -0.21727347995295043,
+     "yaw": 3.0422249175105427
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "007_shoe-box",
+     "variant": 0,
+     "name": "orange shoe box",
+     "x": 0.5679889032266672,
+     "y": 0.010843054992289991,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "112_tea-box",
+     "variant": 1,
+     "name": "red tea box",
+     "x": 0.5668583804318907,
+     "y": 0.3053338660879591,
+     "yaw": 0.29042132053611913
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 0,
+     "name": "white can",
+     "x": 0.5317457316216284,
+     "y": -0.22029050239685394,
+     "yaw": 2.1964052380352412
+    },
+    {
+     "kind": "object",
+     "model": "059_pencup",
+     "variant": 5,
+     "name": "blue pen cup",
+     "x": 0.5923043799250136,
+     "y": -0.336067267978323,
+     "yaw": 0.007256974243933289
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "007_shoe-box",
+     "variant": 0,
+     "name": "orange shoe box",
+     "x": 0.5909793989752791,
+     "y": -0.021652472893831973,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "112_tea-box",
+     "variant": 1,
+     "name": "red tea box",
+     "x": 0.5056417861890462,
+     "y": 0.2863919255844329,
+     "yaw": 3.0536867392174205
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 0,
+     "name": "white can",
+     "x": 0.4815734460426101,
+     "y": 0.17604659536417638,
+     "yaw": 1.231221065206444
+    },
+    {
+     "kind": "object",
+     "model": "059_pencup",
+     "variant": 5,
+     "name": "blue pen cup",
+     "x": 0.5401989932744291,
+     "y": -0.2862301864003534,
+     "yaw": 2.568760490190293
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "007_shoe-box",
+     "variant": 0,
+     "name": "orange shoe box",
+     "x": 0.5883638372146356,
+     "y": -0.017244942178775872,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "112_tea-box",
+     "variant": 1,
+     "name": "red tea box",
+     "x": 0.49422953070531606,
+     "y": -0.3374724849979326,
+     "yaw": 0.3462237778912446
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 0,
+     "name": "white can",
+     "x": 0.4765514697152104,
+     "y": 0.18909521137906138,
+     "yaw": 1.8926497338422552
+    },
+    {
+     "kind": "object",
+     "model": "059_pencup",
+     "variant": 5,
+     "name": "blue pen cup",
+     "x": 0.5803471216230365,
+     "y": -0.2216305025221774,
+     "yaw": 1.72218005871831
+    }
+   ]
+  ],
+  "6": [
+   [
+    {
+     "kind": "container",
+     "model": "007_shoe-box",
+     "variant": 0,
+     "name": "orange shoe box",
+     "x": 0.5903849051496722,
+     "y": 0.02142294961862569,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "cube",
+     "variant": 0,
+     "name": "red cube",
+     "x": 0.5077521565689211,
+     "y": -0.28429698698766354,
+     "yaw": 0.24251025196881948
+    },
+    {
+     "kind": "object",
+     "model": "086_woodenblock",
+     "variant": 1,
+     "name": "wooden block",
+     "x": 0.5247299680210458,
+     "y": -0.17938675245047636,
+     "yaw": 2.570015135265209
+    },
+    {
+     "kind": "object",
+     "model": "109_hydrating-oil",
+     "variant": 0,
+     "name": "yellow bottle",
+     "x": 0.5285194237074402,
+     "y": 0.23963272780543218,
+     "yaw": 1.1578264101565565
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "007_shoe-box",
+     "variant": 0,
+     "name": "orange shoe box",
+     "x": 0.5856089015933144,
+     "y": -0.019106557126662056,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "cube",
+     "variant": 0,
+     "name": "red cube",
+     "x": 0.5361602572854945,
+     "y": 0.33952732330548774,
+     "yaw": 1.517613497245523
+    },
+    {
+     "kind": "object",
+     "model": "086_woodenblock",
+     "variant": 1,
+     "name": "wooden block",
+     "x": 0.4863517595736401,
+     "y": -0.35039593017172355,
+     "yaw": 2.8238119607168684
+    },
+    {
+     "kind": "object",
+     "model": "109_hydrating-oil",
+     "variant": 0,
+     "name": "yellow bottle",
+     "x": 0.5281707524256656,
+     "y": -0.2268225612109141,
+     "yaw": 1.577839808579091
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "007_shoe-box",
+     "variant": 0,
+     "name": "orange shoe box",
+     "x": 0.560459773212116,
+     "y": 0.024844518882829687,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "cube",
+     "variant": 0,
+     "name": "red cube",
+     "x": 0.5700617231965798,
+     "y": -0.18039444060234405,
+     "yaw": 1.0074863671000436
+    },
+    {
+     "kind": "object",
+     "model": "086_woodenblock",
+     "variant": 1,
+     "name": "wooden block",
+     "x": 0.5516453661265711,
+     "y": -0.33134107730394324,
+     "yaw": 1.9546358559619497
+    },
+    {
+     "kind": "object",
+     "model": "109_hydrating-oil",
+     "variant": 0,
+     "name": "yellow bottle",
+     "x": 0.5631192577434933,
+     "y": 0.28138974322753496,
+     "yaw": 1.9544955914837485
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "007_shoe-box",
+     "variant": 0,
+     "name": "orange shoe box",
+     "x": 0.5782159878879171,
+     "y": 0.0072332520027982225,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "cube",
+     "variant": 0,
+     "name": "red cube",
+     "x": 0.4663062356723768,
+     "y": 0.2507261360559708,
+     "yaw": 2.9620151756046336
+    },
+    {
+     "kind": "object",
+     "model": "086_woodenblock",
+     "variant": 1,
+     "name": "wooden block",
+     "x": 0.4925648658741378,
+     "y": -0.3231537185497524,
+     "yaw": 0.03954150904028645
+    },
+    {
+     "kind": "object",
+     "model": "109_hydrating-oil",
+     "variant": 0,
+     "name": "yellow bottle",
+     "x": 0.5878338327269499,
+     "y": -0.24852486582162975,
+     "yaw": 1.498576968706427
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "007_shoe-box",
+     "variant": 0,
+     "name": "orange shoe box",
+     "x": 0.5313750303881122,
+     "y": -0.03100708122727929,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "cube",
+     "variant": 0,
+     "name": "red cube",
+     "x": 0.5410795223948706,
+     "y": -0.36158141056754545,
+     "yaw": 0.4691457085843786
+    },
+    {
+     "kind": "object",
+     "model": "086_woodenblock",
+     "variant": 1,
+     "name": "wooden block",
+     "x": 0.5797622857811768,
+     "y": 0.18770491777320694,
+     "yaw": 0.20542249195595877
+    },
+    {
+     "kind": "object",
+     "model": "109_hydrating-oil",
+     "variant": 0,
+     "name": "yellow bottle",
+     "x": 0.5736637448882485,
+     "y": -0.25872602097843755,
+     "yaw": 2.3117640589226434
+    }
+   ]
+  ],
+  "7": [
+   [
+    {
+     "kind": "container",
+     "model": "063_tabletrashbin",
+     "variant": 0,
+     "name": "orange bin",
+     "x": 0.52655393951673,
+     "y": -0.03800843829469382,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "113_coffee-box",
+     "variant": 6,
+     "name": "white coffee box",
+     "x": 0.5495042362581882,
+     "y": 0.21115612965814867,
+     "yaw": 2.153686308533619
+    },
+    {
+     "kind": "object",
+     "model": "105_sauce-can",
+     "variant": 5,
+     "name": "sauce jar",
+     "x": 0.5951989153505143,
+     "y": 0.3212380834758207,
+     "yaw": 0.8657421813871448
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 6,
+     "name": "red can",
+     "x": 0.5304194182746369,
+     "y": -0.32173931657481913,
+     "yaw": 2.2536451003022964
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "063_tabletrashbin",
+     "variant": 0,
+     "name": "orange bin",
+     "x": 0.5270063905316267,
+     "y": -0.017276126231645258,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "113_coffee-box",
+     "variant": 6,
+     "name": "white coffee box",
+     "x": 0.5714217825114593,
+     "y": 0.1926949823474292,
+     "yaw": 1.771118771962375
+    },
+    {
+     "kind": "object",
+     "model": "105_sauce-can",
+     "variant": 5,
+     "name": "sauce jar",
+     "x": 0.4934465711966141,
+     "y": -0.30600624132109044,
+     "yaw": 2.2856615612407776
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 6,
+     "name": "red can",
+     "x": 0.5379232428170316,
+     "y": 0.3213890225707064,
+     "yaw": 1.4163890627607778
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "063_tabletrashbin",
+     "variant": 0,
+     "name": "orange bin",
+     "x": 0.555155159502961,
+     "y": -0.024265218572290685,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "113_coffee-box",
+     "variant": 6,
+     "name": "white coffee box",
+     "x": 0.47413605462369235,
+     "y": -0.16820372097690667,
+     "yaw": 0.8168900987621681
+    },
+    {
+     "kind": "object",
+     "model": "105_sauce-can",
+     "variant": 5,
+     "name": "sauce jar",
+     "x": 0.4930876908691049,
+     "y": 0.32457378805293857,
+     "yaw": 1.2343378214178407
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 6,
+     "name": "red can",
+     "x": 0.5793495914153726,
+     "y": -0.24104999179530878,
+     "yaw": 0.9650192518451624
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "063_tabletrashbin",
+     "variant": 0,
+     "name": "orange bin",
+     "x": 0.5367779368298882,
+     "y": 0.03853056956805829,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "113_coffee-box",
+     "variant": 6,
+     "name": "white coffee box",
+     "x": 0.47306942765990206,
+     "y": -0.2996955267222069,
+     "yaw": 1.2540342974526268
+    },
+    {
+     "kind": "object",
+     "model": "105_sauce-can",
+     "variant": 5,
+     "name": "sauce jar",
+     "x": 0.5607100972125264,
+     "y": 0.2359021344497247,
+     "yaw": 1.7996306771093449
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 6,
+     "name": "red can",
+     "x": 0.48723467289884737,
+     "y": -0.14562519503904808,
+     "yaw": 1.767880128173004
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "063_tabletrashbin",
+     "variant": 0,
+     "name": "orange bin",
+     "x": 0.5367859402151486,
+     "y": -0.02454673954701322,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "113_coffee-box",
+     "variant": 6,
+     "name": "white coffee box",
+     "x": 0.568143493589371,
+     "y": -0.24808787739531774,
+     "yaw": 1.783261862682855
+    },
+    {
+     "kind": "object",
+     "model": "105_sauce-can",
+     "variant": 5,
+     "name": "sauce jar",
+     "x": 0.49196861296004246,
+     "y": -0.3482982783382582,
+     "yaw": 1.2552391249892327
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 6,
+     "name": "red can",
+     "x": 0.4696605688685387,
+     "y": 0.32946885180284907,
+     "yaw": 1.4452844843406016
+    }
+   ]
+  ],
+  "8": [
+   [
+    {
+     "kind": "container",
+     "model": "063_tabletrashbin",
+     "variant": 0,
+     "name": "orange bin",
+     "x": 0.5837491907423572,
+     "y": 0.0228031222757012,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "113_coffee-box",
+     "variant": 6,
+     "name": "white coffee box",
+     "x": 0.5796557198248051,
+     "y": -0.21410630118310098,
+     "yaw": 2.2674649859270706
+    },
+    {
+     "kind": "object",
+     "model": "112_tea-box",
+     "variant": 1,
+     "name": "red tea box",
+     "x": 0.5121283685921468,
+     "y": 0.33913164796883805,
+     "yaw": 0.6761652714796922
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 6,
+     "name": "red can",
+     "x": 0.5138182447762099,
+     "y": 0.20415973605265753,
+     "yaw": 1.3845133130449465
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "063_tabletrashbin",
+     "variant": 0,
+     "name": "orange bin",
+     "x": 0.5640959622335696,
+     "y": 0.012643502587666833,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "113_coffee-box",
+     "variant": 6,
+     "name": "white coffee box",
+     "x": 0.598493371913173,
+     "y": -0.30288434968820044,
+     "yaw": 2.221731021794565
+    },
+    {
+     "kind": "object",
+     "model": "112_tea-box",
+     "variant": 1,
+     "name": "red tea box",
+     "x": 0.555824287805404,
+     "y": 0.31447852414234084,
+     "yaw": 2.7012359508603416
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 6,
+     "name": "red can",
+     "x": 0.4916126242011842,
+     "y": -0.3327671258680155,
+     "yaw": 0.7076178630471825
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "063_tabletrashbin",
+     "variant": 0,
+     "name": "orange bin",
+     "x": 0.5744107187812373,
+     "y": 0.009981456372471671,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "113_coffee-box",
+     "variant": 6,
+     "name": "white coffee box",
+     "x": 0.5118124074422686,
+     "y": 0.19229055179182322,
+     "yaw": 1.0400623059111933
+    },
+    {
+     "kind": "object",
+     "model": "112_tea-box",
+     "variant": 1,
+     "name": "red tea box",
+     "x": 0.4894538748652344,
+     "y": 0.3280010939344259,
+     "yaw": 1.7056227074891748
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 6,
+     "name": "red can",
+     "x": 0.5535552830769901,
+     "y": -0.15002548726540813,
+     "yaw": 1.2836751013559053
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "063_tabletrashbin",
+     "variant": 0,
+     "name": "orange bin",
+     "x": 0.5439336593227706,
+     "y": 0.026119859921968476,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "113_coffee-box",
+     "variant": 6,
+     "name": "white coffee box",
+     "x": 0.47162259277348695,
+     "y": -0.15793932621054635,
+     "yaw": 0.992211538446271
+    },
+    {
+     "kind": "object",
+     "model": "112_tea-box",
+     "variant": 1,
+     "name": "red tea box",
+     "x": 0.5731985428951217,
+     "y": 0.21546209976340994,
+     "yaw": 0.593993508811362
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 6,
+     "name": "red can",
+     "x": 0.5607423495578865,
+     "y": -0.2763370652311551,
+     "yaw": 1.6734792064084791
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "063_tabletrashbin",
+     "variant": 0,
+     "name": "orange bin",
+     "x": 0.572722946356597,
+     "y": -0.03260594616122149,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "113_coffee-box",
+     "variant": 6,
+     "name": "white coffee box",
+     "x": 0.5335449627320996,
+     "y": -0.3167899345401526,
+     "yaw": 1.318139458592398
+    },
+    {
+     "kind": "object",
+     "model": "112_tea-box",
+     "variant": 1,
+     "name": "red tea box",
+     "x": 0.5373927600354951,
+     "y": -0.2099193043758375,
+     "yaw": 2.3885421010330252
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 6,
+     "name": "red can",
+     "x": 0.5018047747267275,
+     "y": 0.294917833337468,
+     "yaw": 0.26841626143961644
+    }
+   ]
+  ],
+  "9": [
+   [
+    {
+     "kind": "container",
+     "model": "007_shoe-box",
+     "variant": 0,
+     "name": "orange shoe box",
+     "x": 0.548202572325095,
+     "y": 0.03734049222743931,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "073_rubikscube",
+     "variant": 0,
+     "name": "Rubik's cube",
+     "x": 0.5785191223360918,
+     "y": 0.3380425438273025,
+     "yaw": 1.524165257126634
+    },
+    {
+     "kind": "object",
+     "model": "105_sauce-can",
+     "variant": 5,
+     "name": "sauce jar",
+     "x": 0.5511291340005886,
+     "y": -0.2775126216499001,
+     "yaw": 1.141620646833668
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 5,
+     "name": "brown can",
+     "x": 0.5649365312132608,
+     "y": -0.16063059574726862,
+     "yaw": 1.8278069350822077
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "007_shoe-box",
+     "variant": 0,
+     "name": "orange shoe box",
+     "x": 0.5810042631393997,
+     "y": 0.026987730507002962,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "073_rubikscube",
+     "variant": 0,
+     "name": "Rubik's cube",
+     "x": 0.5481468278128313,
+     "y": 0.3347399852881142,
+     "yaw": 0.12332157006629516
+    },
+    {
+     "kind": "object",
+     "model": "105_sauce-can",
+     "variant": 5,
+     "name": "sauce jar",
+     "x": 0.5225730153168059,
+     "y": 0.22639999959004453,
+     "yaw": 0.21744869098014463
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 5,
+     "name": "brown can",
+     "x": 0.5229732636361867,
+     "y": -0.31846173197030425,
+     "yaw": 2.73880623308288
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "007_shoe-box",
+     "variant": 0,
+     "name": "orange shoe box",
+     "x": 0.5471584274232594,
+     "y": -0.009225191897561782,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "073_rubikscube",
+     "variant": 0,
+     "name": "Rubik's cube",
+     "x": 0.48165578665433917,
+     "y": -0.35147815779960057,
+     "yaw": 0.05015509043828713
+    },
+    {
+     "kind": "object",
+     "model": "105_sauce-can",
+     "variant": 5,
+     "name": "sauce jar",
+     "x": 0.5612938648506556,
+     "y": 0.2017666289627968,
+     "yaw": 3.115429527021844
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 5,
+     "name": "brown can",
+     "x": 0.5241099974888934,
+     "y": 0.3429995650959873,
+     "yaw": 0.14259206523430465
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "007_shoe-box",
+     "variant": 0,
+     "name": "orange shoe box",
+     "x": 0.5263413228284362,
+     "y": -0.03585664330226435,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "073_rubikscube",
+     "variant": 0,
+     "name": "Rubik's cube",
+     "x": 0.5820870723595574,
+     "y": -0.3015896037898313,
+     "yaw": 1.2261869428076124
+    },
+    {
+     "kind": "object",
+     "model": "105_sauce-can",
+     "variant": 5,
+     "name": "sauce jar",
+     "x": 0.5458211024903811,
+     "y": 0.29417319590517477,
+     "yaw": 2.880664691118541
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 5,
+     "name": "brown can",
+     "x": 0.5888199128846423,
+     "y": 0.16149052755464002,
+     "yaw": 3.1173621549997406
+    }
+   ],
+   [
+    {
+     "kind": "container",
+     "model": "007_shoe-box",
+     "variant": 0,
+     "name": "orange shoe box",
+     "x": 0.5572594335389597,
+     "y": 0.011684916470667203,
+     "yaw": 0.0
+    },
+    {
+     "kind": "object",
+     "model": "073_rubikscube",
+     "variant": 0,
+     "name": "Rubik's cube",
+     "x": 0.48163041027378106,
+     "y": 0.31620514869059535,
+     "yaw": 2.4016408992201934
+    },
+    {
+     "kind": "object",
+     "model": "105_sauce-can",
+     "variant": 5,
+     "name": "sauce jar",
+     "x": 0.519242717538376,
+     "y": -0.3111560154432948,
+     "yaw": 0.3292376767570194
+    },
+    {
+     "kind": "object",
+     "model": "071_can",
+     "variant": 5,
+     "name": "brown can",
+     "x": 0.5259400270471998,
+     "y": -0.17701832497996395,
+     "yaw": 3.1356737528176066
+    }
+   ]
+  ]
+ }
+}
